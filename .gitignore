@@ -1,0 +1,7 @@
+# NPM generated files
+node_modules/
+npm-debug.log
+
+# Compiled files
+dist/*
+!dist/.gitkeep

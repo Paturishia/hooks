@@ -5,7 +5,6 @@ const taskListing = require('gulp-task-listing');
 const concat = require('gulp-concat');
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
-const browserify = require('browserify');
 const browserSync = require('browser-sync');
 const del = require('del');
 const runSequence = require('run-sequence');
@@ -49,20 +48,12 @@ gulp.task('help', taskListing);
 
 // Clean the dist dir (except for the file .gitkeep and storybook/.gitkeep)
 gulp.task('clean', () => {
-  return del.sync([
-    PATHS.dist + '*',
-    '!' + PATHS.dist + 'storybook/**',
-    PATHS.dist + 'storybook/*',
-    '!' + PATHS.dist + 'storybook/.gitkeep'
-  ]);
+  return del.sync();
 });
 
 // Bundle the app JS by using browserify + babelify
 gulp.task('javascripts', () => {
-  return browserify(PATHS.javascript)
-    .bundle()
-    // Pass desired output filename to vinyl-source-stream
-    .pipe(source('bundle.js'))
+  return gulp.src(PATHS.javascript)
     // Start piping stream to tasks!
     .pipe(gulp.dest(PATHS.dist + 'javascripts'));
 });
@@ -87,7 +78,7 @@ gulp.task('html', () => {
 });
 
 gulp.task('lint', () => {
-  return gulp.src(PATHS.javascripts)
+  return gulp.src(PATHS.javascript)
     .pipe(eslint())
     // Use the default "stylish" ESLint formatter
     .pipe(eslint.format())
