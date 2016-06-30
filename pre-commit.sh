@@ -13,4 +13,7 @@
 #git stash pop -q
 #[ $RESULT -ne 0 ] && exit 1
 #exit 0
-gulp help
+eslint "src/assets/javascripts/*"
+RESULT=$?
+[ $RESULT -ne 0 ] && exit 1
+exit 0
