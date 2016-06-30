@@ -1,0 +1,31 @@
+{
+  "name": "hooks-test",
+  "version": "1.0.0",
+  "description": "Hooks - Repo to test the Git hooks",
+  "main": "src/index.html",
+  "scripts": {
+    "start": "gulp dev",
+    "server": "node server",
+    "clean": "gulp clean"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Paturishia/hooks.git"
+  },
+  "author": "Patricia Mateos",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "2.12.10",
+    "browserify": "13.0.1",
+    "eslint": "2.13.1",
+    "gulp": "3.9.1",
+    "gulp-autoprefixer": "3.1.0",
+    "gulp-concat": "2.6.0",
+    "gulp-eslint": "2.0.0",
+    "gulp-sass": "2.3.1",
+    "gulp-task-listing": "1.0.1",
+    "node-sass": "3.8.0",
+    "run-sequence": "1.2.1"
+  },
+  "engine": "node 6.0.0"
+}
